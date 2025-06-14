@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GovLink - Powered by Nishchhal Agarwal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f2f7ff;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 2rem;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #003366;
+    }
+    input, select, button {
+      display: block;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GovLink</h1>
+    <nav>
+      <a href="#how">How It Works</a>
+      <a href="#demo">AI Demo</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Welcome to GovLink</h2>
+      <p>Bridging Citizens with the Schemes They Deserve. Powered by AI. Built by Nishchhal Agarwal.</p>
+    </section>
+
+    <section id="how">
+      <h2>How It Works</h2>
+      <p>GovLink uses Generative AI to recommend schemes based on age, income, caste, gender, and job. Just enter your details and let the AI do the rest.</p>
+    </section>
+
+    <section id="demo">
+      <h2>AI Scheme Finder Demo</h2>
+      <label>Age:</label>
+      <input type="number" id="age" />
+      <label>Income:</label>
+      <input type="number" id="income" />
+      <label>Occupation:</label>
+      <select id="occupation">
+        <option value="student">Student</option>
+        <option value="farmer">Farmer</option>
+        <option value="unemployed">Unemployed</option>
+        <option value="working">Working Professional</option>
+      </select>
+      <button onclick="recommendSchemes()">Get Scheme Recommendations</button>
+      <p id="result"></p>
+    </section>
+
+    <section id="about">
+      <h2>About Nishchhal Agarwal</h2>
+      <p>I am a high schooler passionate about social impact, AI, and simplifying governance for everyone. GovLink is my step towards making government welfare more accessible through technology.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: contact@govlink.ai (placeholder)</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GovLink. Created by Nishchhal Agarwal.</p>
+  </footer>
+
+  <script>
+    function recommendSchemes() {
+      const age = parseInt(document.getElementById('age').value);
+      const income = parseInt(document.getElementById('income').value);
+      const occupation = document.getElementById('occupation').value;
+      let result = '';
+      if (age < 18) {
+        result = 'You may be eligible for scholarships, student aid, and PM-YASASVI.';
+      } else if (occupation === 'farmer') {
+        result = 'Schemes like PM-KISAN, Soil Health Card, and PMFBY may apply.';
+      } else if (income < 200000) {
+        result = 'You might qualify for Ayushman Bharat, Ujjwala Yojana, and PDS subsidies.';
+      } else {
+        result = 'Based on your profile, explore Stand-Up India or Startup India schemes.';
+      }
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
